@@ -9259,6 +9259,13 @@
       "status": "complete",
       "url": "https://www.texasmonthly.com/articles/the-astronaut-who-might-actually-get-us-to-mars/",
       "author": "Katy Vine"
+    },
+    {
+      "filename": "2026-01-07-www.nytimes.com-2011-06-17-us-17mental-html.md",
+      "title": "Untitled (extraction failed)",
+      "url": "https://www.nytimes.com/2011/06/17/us/17MENTAL.html",
+      "status": "incomplete",
+      "embedding": []
     }
   ]
 }
