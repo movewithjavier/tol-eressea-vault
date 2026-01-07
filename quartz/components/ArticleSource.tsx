@@ -4,10 +4,12 @@ import { classNames } from "../util/lang"
 const ArticleSource: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
   const author = fileData.frontmatter?.author as string | undefined
   const publication = fileData.frontmatter?.publication as string | undefined
-  const source = fileData.frontmatter?.source as string | undefined
+  // Support both 'source' and 'url' fields for original article link
+  const source = (fileData.frontmatter?.source || fileData.frontmatter?.url) as string | undefined
+  const pdfUrl = fileData.frontmatter?.pdf_url as string | undefined
 
   // Only show if we have at least one field
-  if (!author && !publication && !source) {
+  if (!author && !publication && !source && !pdfUrl) {
     return null
   }
 
@@ -24,13 +26,18 @@ const ArticleSource: QuartzComponent = ({ fileData, displayClass }: QuartzCompon
   return (
     <div class={classNames(displayClass, "article-source")}>
       {byline && <p class="byline">{byline}</p>}
-      {source && (
-        <p class="source-link">
+      <div class="source-links">
+        {source && (
           <a href={source} target="_blank" rel="noopener noreferrer">
             Original article ↗
           </a>
-        </p>
-      )}
+        )}
+        {pdfUrl && (
+          <a href={pdfUrl} target="_blank" rel="noopener noreferrer" class="pdf-link">
+            View PDF ↗
+          </a>
+        )}
+      </div>
     </div>
   )
 }
@@ -47,13 +54,20 @@ ArticleSource.css = `
   color: var(--gray);
 }
 
-.article-source .source-link {
+.article-source .source-links {
   margin: 0.25rem 0 0 0;
   font-size: 0.9rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.article-source .source-link a {
+.article-source .source-links a {
   color: var(--secondary);
+}
+
+.article-source .source-links .pdf-link {
+  color: var(--tertiary);
 }
 `
 
