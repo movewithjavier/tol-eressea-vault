@@ -9265,7 +9265,8 @@
       "title": "Untitled (extraction failed)",
       "url": "https://www.nytimes.com/2011/06/17/us/17MENTAL.html",
       "status": "complete",
-      "embedding": []
+      "embedding": [],
+      "pdf_url": "https://pub-fdd20d3ed85a472382626f4582604400.r2.dev/articles/2026-01-07-www.nytimes.com-2011-06-17-us-17mental-html.pdf"
     },
     {
       "filename": "2026-01-07-imagination-vs-creativity.md",
